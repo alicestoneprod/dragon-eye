@@ -1,7 +1,7 @@
 import "styles/globals.scss"
 
 function App() {
-  return <></>
+  return <>Привет Hello</>
 }
 
 export default App
