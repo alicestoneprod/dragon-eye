@@ -5,10 +5,12 @@ import { Loader } from "components"
 import { ReadVariant } from "shared/types"
 import { useAppDispatch } from "shared/hooks/useAppDispatch"
 import { setIsLoading } from "store/loadingSlice"
+import { setFile } from "store/fileSlice"
+import { useDrop } from "shared/hooks"
+import isArray from "lodash/isArray"
 import Clip from "icons/clip.svg?react"
 import cn from "classnames"
 import s from "./FileUploader.module.scss"
-import { setFile } from "store/fileSlice"
 
 interface FileUploaderI {
   readVariant: ReadVariant
@@ -22,6 +24,27 @@ interface FileUploaderI {
 export const FileUploader: FC<FileUploaderI> = ({ readVariant, onFinish, className, accept, multiple = false, onMultipleFinish }) => {
   const { status, readFile, loading, setLoading } = useUpload(readVariant, multiple)
   const [fileName, setFileName] = useState("")
+
+  const handleDrop = async (files: File[] | File) => {
+    if (isArray(files)) {
+      setLoading(true)
+      for (const file of files) {
+        const data = await readFile(file)
+        setFileName(file.name)
+        const result = extractData(data as ArrayBuffer, file.name)
+        onMultipleFinish(result as DntData, file.name)
+      }
+      setLoading(false)
+      return
+    }
+
+    const data = await readFile(files)
+    setFileName(files.name)
+    const result = extractData(data as ArrayBuffer, files.name)
+    onFinish(result as DntData)
+  }
+
+  const { drag, onDragStart, onDragLeave, onDrop } = useDrop({ multiple, onDropFunc: handleDrop, accept })
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -58,8 +81,13 @@ export const FileUploader: FC<FileUploaderI> = ({ readVariant, onFinish, classNa
     onFinish(result as DntData)
   }
 
-  return (
-    <div className={cn(className, s.fileUploaderCnt, status === "error" && s.error, status === "success" && s.success)}>
+  return !drag ? (
+    <div
+      className={cn(className, s.fileUploaderCnt, status === "error" && s.error, status === "success" && s.success)}
+      onDragStart={onDragStart}
+      onDragOver={onDragStart}
+      onDragLeave={onDragLeave}
+      onDrop={onDrop}>
       <div className={s.iconCnt}>
         <input type='file' id='file-uploader' accept={accept} className={s.input} hidden multiple={multiple} onChange={(e) => handleChange(e)} />
         <Clip className={s.icon} onClick={handleClick} height={26} width={26} />
@@ -69,6 +97,16 @@ export const FileUploader: FC<FileUploaderI> = ({ readVariant, onFinish, classNa
       ) : (
         <div className={s.fileName}>{fileName || "File is not attached!"}</div>
       )}
+    </div>
+  ) : (
+    <div
+      className={cn(className, s.fileUploaderCnt, "flex justify-center items-center text-black")}
+      style={{ width: 400, height: 200 }}
+      onDragStart={onDragStart}
+      onDragOver={onDragStart}
+      onDragLeave={onDragLeave}
+      onDrop={onDrop}>
+      Drop file here
     </div>
   )
 }
