@@ -1,0 +1,21 @@
+@use "styles" as *;
+
+.link {
+  font-size: 14px;
+  color: #888;
+
+  letter-spacing: 0.5px;
+
+  transition: color 0.2s ease;
+  &:hover {
+    color: $color-white;
+    transition: color 0.2s ease;
+  }
+}
+
+.isActive {
+  color: $color-is-active;
+  &:hover {
+    color: $color-is-active;
+  }
+}

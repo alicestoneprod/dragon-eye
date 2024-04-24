@@ -1,0 +1,71 @@
+@use "styles" as *;
+
+.dntViewCnt {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-black;
+  height: fit-content;
+  padding-bottom: 120px;
+  gap: 20px;
+}
+
+.titleTipCnt {
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.title {
+  font-size: 60px;
+  color: $color-grey-font;
+  letter-spacing: -1px;
+}
+
+.tip {
+  color: $color-grey-font;
+  font-size: 16px;
+  letter-spacing: -0.1px;
+}
+
+.columnsContainer {
+  min-width: 200px;
+  min-height: 200px;
+  background-color: aliceblue;
+}
+
+.input {
+  width: 500px;
+}
+
+.tableCnt {
+  z-index: 20;
+  min-width: 1600px;
+}
+
+.imgCnt {
+  position: absolute;
+  z-index: 1;
+  width: 400px;
+  height: 400px;
+  top: 200px;
+  left: 10px;
+}
+
+@keyframes moveUpAndDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px); /* Выберите значение смещения вверх */
+  }
+}
+
+.imgCnt {
+  animation: moveUpAndDown 5s infinite ease-in-out; /* Измените значение 2s на длительность анимации, infinite - чтобы анимация повторялась бесконечно */
+}

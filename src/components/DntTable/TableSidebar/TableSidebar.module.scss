@@ -1,0 +1,66 @@
+@use "styles" as *;
+
+.sidebar {
+  transition: width 0.5s ease-out;
+  position: relative;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 24px;
+  width: 300px;
+  height: 550px;
+  overflow-y: scroll;
+  background: white;
+}
+
+.title {
+  padding-top: 24px;
+  color: black;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  font-weight: $fw-regular;
+  margin-bottom: 25px;
+}
+
+.columnsRow {
+  padding-top: 20px;
+  color: $color-black;
+  display: flex;
+  font-size: 14px;
+  flex-direction: column;
+}
+
+.columnRowItem {
+  display: flex;
+}
+
+.tip {
+  color: $color-black;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.icon {
+  position: absolute;
+  cursor: pointer;
+  right: 5px;
+  top: 6px;
+}
+
+.minimized {
+  transition: width 0.5s ease-in-out;
+  height: 20px;
+  width: 20px;
+  overflow: hidden;
+  left: -32px;
+  z-index: 200;
+  .icon {
+    right: 5px;
+    top: 6px;
+  }
+}
+
+.motMinimized {
+  transition: ease-in-out;
+}

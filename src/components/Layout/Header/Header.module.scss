@@ -1,0 +1,40 @@
+@use "styles" as *;
+
+.headerCnt {
+  display: flex;
+  align-items: center;
+  z-index: 500;
+  top: 0;
+  color: $color-white;
+  position: sticky;
+  width: 100%;
+  height: 64px;
+  background-color: $color-black;
+  border-bottom: 1px solid $color-grey-divider;
+  padding: 0 100px;
+}
+
+.iconCnt {
+}
+
+.iconTitleCnt {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 24px;
+  * {
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.title {
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: bold;
+}
+
+.linksRow {
+  display: flex;
+  align-items: center;
+}

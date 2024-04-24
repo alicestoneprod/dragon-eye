@@ -1,3 +1,5 @@
-import { Boarder } from "./Boarder"
+import { DntView } from "./DntView"
+import { DntColumns } from "./DntColumns"
+import { Main } from "./Main"
 
-export { Boarder }
+export { DntView as DntViewPage, DntColumns as DntColumnsPage, Main as MainPage }

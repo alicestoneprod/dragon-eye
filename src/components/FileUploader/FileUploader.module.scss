@@ -1,0 +1,72 @@
+@use "styles" as *;
+
+.fileUploaderCnt {
+  display: flex;
+  padding-left: 16px;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  min-width: 200px;
+  height: 52px;
+  background-color: white;
+  box-shadow:
+    0 1.7px 1.4px rgba(255, 255, 255, 0.02),
+    0 4px 3.3px rgba(255, 255, 255, 0.028),
+    0 7.5px 6.3px rgba(255, 255, 255, 0.035),
+    0 13.4px 11.2px rgba(255, 255, 255, 0.042),
+    0 25.1px 20.9px rgba(255, 255, 255, 0.05),
+    0 60px 50px rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+
+  --border-angle: 0turn; // For animation.
+  --main-bg: conic-gradient(from var(--border-angle), rgb(255, 255, 255), rgb(255, 255, 255) 5%, rgb(255, 255, 255) 60%, rgb(255, 255, 255) 95%);
+
+  border: solid 3px transparent;
+  border-radius: 1em;
+  --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
+
+  background: 
+    // padding-box clip this background in to the overall element except the border.
+    var(--main-bg) padding-box,
+    // border-box extends this background to the border space
+    var(--gradient-border) border-box,
+    // Duplicate main background to fill in behind the gradient border. You can remove this if you want the border to extend "outside" the box background.
+    var(--main-bg) border-box;
+
+  background-position: center center;
+
+  animation: bg-spin 3s linear infinite;
+  @keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.fileName {
+  color: $color-black;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.error {
+  border: 1px $color-error solid;
+}
+
+.success {
+  border: 1px $color-success solid;
+}
+
+.loader {
+  color: $color-black;
+}
