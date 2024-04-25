@@ -12,4 +12,8 @@ export const links: LinkT[] = [
     to: "/dntcolumns",
     title: "Dnt Columns",
   },
+  {
+    to: "/bgm",
+    title: "Listen BGM",
+  },
 ]

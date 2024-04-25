@@ -1,0 +1,43 @@
+@use "styles" as *;
+
+.soundCnt {
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+  align-items: center;
+}
+
+.slider {
+  width: 400px;
+}
+
+.iconStateCnt {
+  position: relative;
+  top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: $color-white;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.sliderDurationCnt {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.durationCnt {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  user-select: none;
+  color: $color-grey-font;
+  font-size: 14px;
+}

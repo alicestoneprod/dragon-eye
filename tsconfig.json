@@ -28,7 +28,8 @@
       "styles/*": ["styles/*"],
       "routes/*": ["routes/*"],
       "icons/*": ["icons/*"],
-      "store/*": ["store/*"]
+      "store/*": ["store/*"],
+      "providers/*": ["providers/*"]
     }
   },
   "include": ["src"],

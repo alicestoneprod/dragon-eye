@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client"
 import { Provider } from "react-redux"
 import { NextUIProvider } from "@nextui-org/react"
 import { store } from "store"
-import { FirebaseProvider } from "./FirebaseProvider.tsx"
+import { FirebaseProvider } from "./providers/FirebaseProvider.tsx"
 import App from "./App.tsx"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

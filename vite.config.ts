@@ -15,6 +15,7 @@ export default defineConfig({
       routes: "/src/routes",
       icons: "/src/icons",
       store: "/src/store",
+      providers: "/src/providers",
     },
   },
 })
