@@ -15,6 +15,7 @@
     "@ag-grid-community/styles": "^31.2.1",
     "@nextui-org/react": "^2.3.5",
     "@reduxjs/toolkit": "^2.2.3",
+    "@supabase/supabase-js": "^2.42.7",
     "ag-grid-community": "^31.2.1",
     "ag-grid-react": "^31.2.1",
     "classnames": "^2.5.1",
