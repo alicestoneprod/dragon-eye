@@ -1,6 +1,11 @@
 @use "styles" as *;
 
+.errorImgMobile {
+  display: none;
+}
+
 .errorCnt {
+  width: 100%;
   display: flex;
   position: relative;
   align-items: center;
@@ -30,4 +35,44 @@
 .desc {
   letter-spacing: -1px;
   font-size: 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .errorImg {
+    display: none;
+  }
+
+  .errorImgMobile {
+    top: 20px;
+    display: flex;
+    width: 400px;
+    height: 400px;
+  }
+
+  .titleDescCnt {
+    top: 450px;
+  }
+
+  .errorCnt {
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .desc {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .errorImgMobile {
+    width: 300px;
+    height: 300px;
+  }
+
+  .titleDescCnt {
+    top: 350px;
+  }
 }
