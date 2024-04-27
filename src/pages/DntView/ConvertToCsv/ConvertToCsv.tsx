@@ -2,7 +2,7 @@ import { FC } from "react"
 import { useAppSelector } from "shared/hooks/useAppSelector"
 import { joinAllContent } from "shared/helpers"
 import { Link } from "@nextui-org/react"
-import DocumentTxt from "icons/document-txt.svg?react"
+import DocumentTxt from "ui/icons/document-txt.svg?react"
 import s from "./ConvertToCsv.module.scss"
 
 interface ConvertToCsvI {}

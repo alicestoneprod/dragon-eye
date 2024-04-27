@@ -27,8 +27,9 @@
       "shared/*": ["shared/*"],
       "styles/*": ["styles/*"],
       "routes/*": ["routes/*"],
-      "icons/*": ["icons/*"],
-      "store/*": ["store/*"]
+      "ui/*": ["ui/*"],
+      "store/*": ["store/*"],
+      "providers/*": ["providers/*"]
     }
   },
   "include": ["src"],

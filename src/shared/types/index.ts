@@ -15,3 +15,12 @@ export interface ColumnItemI {
   fileName: string
   columns: string[]
 }
+
+export interface BGMFile {
+  filename: string
+  duration: number
+}
+
+export interface BGMFormattedFile extends BGMFile {
+  link: string
+}

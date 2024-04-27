@@ -1,3 +1,5 @@
 import { joinAllContent } from "./joinAllContent"
+import { playerTimeFormatter } from "./playerTimeFormatter"
+import { getTotalPages } from "./getTotalPages"
 
-export { joinAllContent }
+export { joinAllContent, playerTimeFormatter, getTotalPages }

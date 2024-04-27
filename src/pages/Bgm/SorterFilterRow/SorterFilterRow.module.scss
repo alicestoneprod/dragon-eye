@@ -1,0 +1,50 @@
+@use "styles" as *;
+
+.sortInputCnt {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.durationSort {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 20px;
+}
+
+.sortIcon {
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+  transform: scaleX(0.8) scaleY(0.8);
+  * {
+    path {
+      stroke: white;
+    }
+  }
+}
+
+.dropdownItem {
+  display: flex;
+  * {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+.dropdownIcon {
+  * {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.descending {
+  position: relative;
+  rotate: 180deg;
+  left: -8px;
+}

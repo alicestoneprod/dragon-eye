@@ -1,0 +1,51 @@
+@use "styles" as *;
+
+.audioSkeleton {
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+  align-items: center;
+}
+
+.iconsCnt {
+  width: 32px;
+  height: 32px;
+  background-color: $color-white;
+  border-radius: 16px;
+}
+
+.sliderDurationCnt {
+  padding-top: 20px;
+}
+
+.sliderCnt {
+  height: 6px;
+  border-radius: 6px;
+  width: 600px;
+}
+
+.rightCnt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.timeCnt {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nameCnt {
+  position: absolute;
+}
+
+.rightCnt {
+  display: flex;
+  top: 10px;
+}
+
+.nameCnt {
+  padding-bottom: 10px;
+}

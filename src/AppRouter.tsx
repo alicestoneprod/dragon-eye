@@ -1,4 +1,4 @@
-import { DntViewPage, DntColumnsPage, MainPage } from "pages"
+import { DntViewPage, DntColumnsPage, MainPage, BgmPage } from "pages"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Layout } from "components"
 
@@ -10,6 +10,7 @@ const AppRouter = () => {
           <Route path='/' element={<MainPage />}></Route>
           <Route path='/viewdnt' element={<DntViewPage />} />
           <Route path='/dntcolumns' element={<DntColumnsPage />} />
+          <Route path="/bgm" element={<BgmPage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

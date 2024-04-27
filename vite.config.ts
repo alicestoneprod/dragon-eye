@@ -13,8 +13,9 @@ export default defineConfig({
       shared: "/src/shared",
       styles: "/src/styles",
       routes: "/src/routes",
-      icons: "/src/icons",
+      ui: "/src/ui",
       store: "/src/store",
+      providers: "/src/providers",
     },
   },
 })

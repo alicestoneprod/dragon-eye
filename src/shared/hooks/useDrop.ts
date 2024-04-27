@@ -32,7 +32,6 @@ export const useDrop = ({ multiple = false, onDropFunc, accept }: UseDropI) => {
 
     const file = e.dataTransfer.files[0]
     const isOk = file.name.split(".")[1] === acceptExt
-    console.log(isOk)
     if (isOk) {
       onDropFunc(file)
       setDrag(false)
