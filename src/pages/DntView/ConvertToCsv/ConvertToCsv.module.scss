@@ -2,3 +2,12 @@
 
 .convertToCsvCnt {
 }
+
+.download {
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 2000;
+  top: -30px;
+}

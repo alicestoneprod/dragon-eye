@@ -3,6 +3,7 @@ import { useAppSelector } from "shared/hooks/useAppSelector"
 import { joinAllContent } from "shared/helpers"
 import { Link } from "@nextui-org/react"
 import DocumentTxt from "ui/icons/document-txt.svg?react"
+import cn from "classnames"
 import s from "./ConvertToCsv.module.scss"
 
 interface ConvertToCsvI {}
@@ -23,7 +24,7 @@ export const ConvertToCsv: FC<ConvertToCsvI> = ({}) => {
 
   return (
     file && (
-      <div className='flex py-5 cursor-pointer gap-1 items-center text-lg'>
+      <div className={s.download}>
         <DocumentTxt />
         <Link color='foreground' onClick={saveAsCsv}>
           Save as .csv
