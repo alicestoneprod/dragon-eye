@@ -1,7 +1,7 @@
 import { FC } from "react"
 import { LinkT } from "../links"
-import s from "./LinksRow.module.scss"
 import { Link } from "components"
+import s from "./LinksRow.module.scss"
 
 interface LinksRowI {
   links: LinkT[]

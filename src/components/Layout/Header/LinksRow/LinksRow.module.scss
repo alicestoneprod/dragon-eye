@@ -1,6 +1,13 @@
 @use "styles" as *;
 
 .linksRowCnt {
+  width: 100%;
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  * {
+    font-size: 12px;
+  }
 }

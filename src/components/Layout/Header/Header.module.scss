@@ -38,3 +38,22 @@
   display: flex;
   align-items: center;
 }
+
+@media screen and (max-width: 900px) {
+  .headerCnt {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .headerCnt {
+    padding: 0 20px;
+  }
+  .title {
+    font-size: 12px;
+  }
+
+  .iconTitleCnt {
+    gap: 10px;
+  }
+}
