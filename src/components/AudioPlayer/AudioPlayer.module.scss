@@ -1,0 +1,77 @@
+@use "styles" as *;
+
+.audioPlayerCnt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: $color-white;
+  border-radius: 8px 8px 0 0;
+  height: 60px;
+  bottom: 0;
+  position: fixed;
+  z-index: 200;
+  opacity: 1;
+  color: $color-black;
+}
+
+.sliderCnt {
+  display: flex;
+  position: absolute;
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+}
+
+.durationsCnt {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -2px;
+  padding: 0 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.buttons {
+  z-index: 2000;
+  cursor: pointer;
+}
+
+.leftRightCnt {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.left {
+  justify-content: flex-end;
+}
+
+.right {
+  padding-top: 25px;
+  width: 200px;
+}
+
+.filenameButtonsCnt {
+  display: flex;
+  padding-top: 20px;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icon {
+  fill: $color-black;
+  z-index: 2000;
+}
+
+.audioSlider {
+  position: relative;
+  cursor: pointer;
+  top: -6px;
+  z-index: 200;
+}
+
+.durationItem {
+  z-index: 2000;
+}

@@ -27,7 +27,7 @@
       "shared/*": ["shared/*"],
       "styles/*": ["styles/*"],
       "routes/*": ["routes/*"],
-      "icons/*": ["icons/*"],
+      "ui/*": ["ui/*"],
       "store/*": ["store/*"],
       "providers/*": ["providers/*"]
     }

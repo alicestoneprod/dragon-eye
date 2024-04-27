@@ -10,6 +10,5 @@ const app = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE
 export const AppContext = createContext(app)
 
 export const SupabaseProvider: FC<SupabaseProvider> = ({ children }) => {
-  console.log(app)
   return <AppContext.Provider value={app}>{children}</AppContext.Provider>
 }

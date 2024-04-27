@@ -1,13 +1,10 @@
 @use "styles" as *;
 
-.soundListCnt {
+.soundListSkeletonCnt {
+  padding-top: 20px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.spinner {
-  height: 200px;
-  width: 200px;
+  flex-direction: column;
+  gap: 40px;
 }

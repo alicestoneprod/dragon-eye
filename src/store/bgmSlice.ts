@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
-import { BGMFile } from "shared/types"
-
-interface BGMFormattedFile extends BGMFile {
-  link: string
-}
+import { BGMFormattedFile } from "shared/types"
 
 const initialState: BGMFormattedFile[] = []
 

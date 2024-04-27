@@ -1,41 +1,57 @@
-import { FC, useContext, useEffect, useState } from "react"
-import { Input } from "@nextui-org/react"
+import { FC, useEffect, useState } from "react"
+import { Pagination } from "@nextui-org/pagination"
 import { SoundList } from "components"
-import { AppContext } from "providers/SupabaseProvider"
-import { cleanup } from "shared/utils"
-import { BGMFile } from "shared/types"
+import { useBgm, usePagination } from "shared/hooks"
 import { useAppDispatch } from "shared/hooks/useAppDispatch"
 import { setBgm } from "store/bgmSlice"
+import { BGMFormattedFile } from "shared/types"
 import { useAppSelector } from "shared/hooks/useAppSelector"
-import Search from "icons/search.svg?react"
+import { SorterFilterRow } from "./SorterFilterRow"
+import cn from "classnames"
 import s from "./Bgm.module.scss"
 
-interface BgmI {}
+interface BgmProps {}
 
-export const Bgm: FC<BgmI> = ({}) => {
-  const app = useContext(AppContext)
+export const Bgm: FC<BgmProps> = () => {
+  const { data, isLoading, error } = useBgm()
+  const files = useAppSelector((state) => state.bgm)
+  const dispatch = useAppDispatch()
+  const [filter, setFilter] = useState<string>("")
+  const [filteredList, setFilteredList] = useState<BGMFormattedFile[]>([])
+  const { currentPage, paginatedArr, onChange, totalPages } = usePagination(7, filteredList || files)
+
+  useEffect(() => {
+    if (data) {
+      dispatch(setBgm(data))
+      setFilteredList(data)
+    }
+  }, [data, dispatch])
 
   return (
     <div className={s.bgmCnt}>
       <div className={s.titleTipCnt}>
-        <div className={s.title}>Are you want to listen Background Music?</div>
+        <div className={s.title}>Are you want to listen to Background Music?</div>
         <div className={s.tip}>It's not a problem, filter them by duration or name.</div>
       </div>
       <div className={s.musicSectionCnt}>
         <div className={s.filterCnt}>
-          <Input
-            startContent={<Search />}
-            isClearable
-            classNames={{
-              base: "w-full sm:max-w-[44%]",
-              inputWrapper: "border-1",
-            }}
-            placeholder='Search by BGM name...'
-            size='sm'
-            variant='bordered'
+          <SorterFilterRow
+            files={files}
+            onChange={onChange}
+            setFilter={setFilter}
+            setFilteredList={setFilteredList}
+            isLoading={isLoading}
+            filter={filter}
           />
         </div>
-        <SoundList />
+        <div className={cn(s.soundListCnt, { [s.error]: error })}>
+          <SoundList loading={isLoading} files={paginatedArr} error={error} filter={filter} />
+        </div>
+        {paginatedArr?.length > 0 && (
+          <div className={s.paginationCnt}>
+            <Pagination total={totalPages} initialPage={1} page={currentPage || 1} onChange={onChange} />
+          </div>
+        )}
       </div>
     </div>
   )

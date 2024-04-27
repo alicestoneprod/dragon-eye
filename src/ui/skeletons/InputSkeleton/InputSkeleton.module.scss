@@ -1,0 +1,11 @@
+@use "styles" as *;
+
+.inputSkeletonCnt {
+  position: relative;
+}
+
+.input {
+  width: 360px;
+  height: 32px;
+  border-radius: 8px;
+}

@@ -1,6 +1,7 @@
 @use "styles" as *;
 
 .soundCnt {
+  transition: transform 0.5s ease;
   display: flex;
   gap: 10px;
   width: fit-content;
@@ -8,7 +9,7 @@
 }
 
 .slider {
-  width: 400px;
+  width: 600px;
 }
 
 .iconStateCnt {
@@ -25,6 +26,7 @@
 }
 
 .sliderDurationCnt {
+  width: 600px;
   display: flex;
   flex-direction: column;
   padding-top: 20px;
@@ -40,4 +42,9 @@
   user-select: none;
   color: $color-grey-font;
   font-size: 14px;
+}
+
+.isCurrent {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
 }

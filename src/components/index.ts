@@ -6,5 +6,7 @@ import { DntTable } from "./DntTable"
 import { DntColumnsTable } from "./DntColumnsTable"
 import { Sound } from "./Sound"
 import { SoundList } from "./SoundList"
+import { AudioPlayer } from "./AudioPlayer"
+import { Error } from "./Error"
 
-export { FileUploader, Loader, Layout, Link, DntTable, DntColumnsTable, Sound, SoundList }
+export { FileUploader, Loader, Layout, Link, DntTable, DntColumnsTable, Sound, SoundList, AudioPlayer, Error }
