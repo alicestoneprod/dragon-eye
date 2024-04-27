@@ -55,9 +55,9 @@ export const SorterFilterRow: FC<SorterFilterRowI> = ({ files, onChange, setFilt
 
   if (isLoading) {
     return (
-      <div className={s.sortInputCnt}>
+      <div className={s.sortInputSkeleton}>
         <InputSkeleton />
-        <Skeleton className='w-20 h-10 rounded-lg' />
+        <Skeleton className='w-24 h-10 rounded-lg' />
       </div>
     )
   }
@@ -67,13 +67,10 @@ export const SorterFilterRow: FC<SorterFilterRowI> = ({ files, onChange, setFilt
       <Input
         startContent={<Search />}
         isClearable
-        classNames={{
-          base: "w-full sm:max-w-[44%]",
-          inputWrapper: "border-1",
-        }}
-        placeholder='Search by BGM name...'
+        placeholder='Search by name'
         size='sm'
         variant='bordered'
+        className={s.input}
         value={filter}
         onChange={(e) => onFilter(e.target.value)}
         onClear={() => setFilter("")}
@@ -86,7 +83,7 @@ export const SorterFilterRow: FC<SorterFilterRowI> = ({ files, onChange, setFilt
             </Button>
           </DropdownTrigger>
           <DropdownMenu
-            aria-label='Single selection example'
+            aria-label='Single selection'
             variant='flat'
             disallowEmptySelection
             selectionMode='single'

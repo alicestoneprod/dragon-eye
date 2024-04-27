@@ -44,7 +44,7 @@ export const Bgm: FC<BgmProps> = () => {
             filter={filter}
           />
         </div>
-        <div className={cn(s.soundListCnt, { [s.error]: error })}>
+        <div className={cn(s.soundBgmListCnt, { [s.error]: error })}>
           <SoundList loading={isLoading} files={paginatedArr} error={error} filter={filter} />
         </div>
         {paginatedArr?.length > 0 && (

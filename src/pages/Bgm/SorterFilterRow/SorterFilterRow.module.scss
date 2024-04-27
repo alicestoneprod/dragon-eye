@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: 75%;
 }
 
 .durationSort {
@@ -47,4 +47,18 @@
   position: relative;
   rotate: 180deg;
   left: -8px;
+}
+
+@media screen and (max-width: 500px) {
+  .input::placeholder {
+    font-size: 10px;
+    padding: 0;
+  }
+}
+
+.sortInputSkeleton {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  justify-content: space-betweens;
 }
