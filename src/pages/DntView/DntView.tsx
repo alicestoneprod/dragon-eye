@@ -24,8 +24,8 @@ export const DntView: FC<DntViewI> = ({}) => {
         <FileUploader readVariant={"asArrayBuffer"} onFinish={onFinish} className={s.uploader} accept='.dnt' />
       </div>
       <div className={s.tableCnt}>
-        <DntTable />
         <ConvertToCsv />
+        <DntTable />
       </div>
       <div className={s.imgCnt}>
         <img src='/assets/sorceress/with_books.png' width={300} height={250} />
