@@ -33,7 +33,7 @@
 .musicSectionCnt {
   padding: 20px 40px;
   border-radius: 24px;
-  width: 900px;
+  width: 50%;
   min-height: 650px;
   background-color: $color-grey-background;
   padding-bottom: 20px;
@@ -58,4 +58,28 @@
   justify-content: center;
 }
 
+.soundBgmListCnt {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
+@media screen and (max-width: 1200px) {
+  .musicSectionCnt {
+    width: 90%;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .musicSectionCnt {
+    overflow: hidden;
+  }
+}

@@ -1,6 +1,7 @@
 @use "styles" as *;
 
 .soundListCnt {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,4 +11,13 @@
 .spinner {
   height: 200px;
   width: 200px;
+}
+
+@media screen and (max-width: 480px) {
+  .errorCnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20%;
+  }
 }

@@ -45,7 +45,7 @@ export const SoundList: FC<SoundListI> = ({ files, loading, error, filter }) => 
 
   if (filter && !files?.length) {
     return (
-      <div className={s.soundListCnt}>
+      <div className={s.errorCnt}>
         <Error title='Music list is empty' description='Nothing was found for your search...' />
       </div>
     )

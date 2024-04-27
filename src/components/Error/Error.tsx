@@ -9,6 +9,7 @@ export const Error: FC<ErrorI> = ({ title, description }) => {
   return (
     <div className={s.errorCnt}>
       <img src='/assets/error/error.png' className={s.errorImg} />
+      <img src='/assets/iren/iren_sad.png' className={s.errorImgMobile} />
       <div className={s.titleDescCnt}>
         <div className={s.title}>{title}</div>
         <div className={s.desc}>{description}</div>
