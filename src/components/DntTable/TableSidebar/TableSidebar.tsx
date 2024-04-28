@@ -1,7 +1,7 @@
 import { FC, useCallback, ChangeEvent, useState } from "react"
 import { ColumnsDefsI } from "../DntTable"
 import { Checkbox, Input } from "ui/nextui-components"
-import { Minimize, Unminimizen } from "ui/icons"
+import { Minimize, Unminimize } from "ui/icons"
 import debounce from "lodash/debounce"
 import cn from "classnames"
 import s from "./TableSidebar.module.scss"
