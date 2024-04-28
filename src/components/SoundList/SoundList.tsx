@@ -1,7 +1,7 @@
 import { FC } from "react"
 import { Sound } from "components"
 import { SoundListSkeleton } from "ui/skeletons"
-import { Spinner } from "@nextui-org/react"
+import { Spinner } from "ui/nextui-components"
 import { BGMFormattedFile } from "shared/types"
 import { useAppSelector } from "shared/hooks/useAppSelector"
 import { useAppDispatch } from "shared/hooks/useAppDispatch"

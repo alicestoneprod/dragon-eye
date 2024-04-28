@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { Skeleton } from "@nextui-org/skeleton"
+import { Skeleton } from "ui/nextui-components"
 import s from "./PaginationSkeleton.module.scss"
 
 interface PaginationSkeletonI {}

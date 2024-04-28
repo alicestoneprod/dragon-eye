@@ -1,9 +1,8 @@
 import { FC, useEffect, useState } from "react"
 import { BGMFormattedFile } from "shared/types"
 import { InputSkeleton } from "ui/skeletons"
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Input, Skeleton } from "@nextui-org/react"
-import Search from "ui/icons/search.svg?react"
-import Arrow from "ui/icons/arrow-up.svg?react"
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Input, Skeleton } from "ui/nextui-components"
+import { Search, Arrow } from "ui/icons"
 import s from "./SorterFilterRow.module.scss"
 
 interface SorterFilterRowI {

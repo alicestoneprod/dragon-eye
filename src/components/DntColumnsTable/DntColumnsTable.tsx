@@ -1,12 +1,11 @@
 import { ChangeEvent, FC, useCallback, useMemo } from "react"
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, getKeyValue, Input } from "@nextui-org/react"
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, getKeyValue, Input } from "ui/nextui-components"
 import { ColumnItemI } from "shared/types"
 import { Loader } from "components"
 import { useAppSelector } from "shared/hooks/useAppSelector"
 import debounce from "lodash/debounce"
 import Highlighter from "react-highlight-words"
-import Search from "ui/icons/search.svg?react"
-
+import { Search } from "ui/icons"
 import s from "./DntColumnsTable.module.scss"
 
 interface DntColumnsTableI {

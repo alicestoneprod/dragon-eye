@@ -1,9 +1,8 @@
 import { FC } from "react"
-import { Avatar } from "@nextui-org/react"
-import Github from "ui/icons/github.svg?react"
-import Logo from "ui/icons/eye.svg?react"
-import s from "./Main.module.scss"
+import { Avatar } from "ui/nextui-components"
+import { Github, Logo } from "ui/icons"
 import { NavLink } from "react-router-dom"
+import s from "./Main.module.scss"
 
 interface MainI {}
 

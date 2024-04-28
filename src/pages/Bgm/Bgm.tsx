@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react"
-import { Pagination } from "@nextui-org/pagination"
+import { Pagination } from "ui/nextui-components"
 import { SoundList } from "components"
 import { useBgm, usePagination } from "shared/hooks"
 import { useAppDispatch } from "shared/hooks/useAppDispatch"
@@ -30,7 +30,7 @@ export const Bgm: FC<BgmProps> = () => {
   return (
     <div className={s.bgmCnt}>
       <div className={s.titleTipCnt}>
-        <div className={s.title}>Are you want to listen to Background Music?</div>
+        <div className={s.title}>Are you want to listen Background Music?</div>
         <div className={s.tip}>It's not a problem, filter them by duration or name.</div>
       </div>
       <div className={s.musicSectionCnt}>

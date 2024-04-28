@@ -2,7 +2,7 @@ import { FC } from "react"
 import { LinksRow } from "./LinksRow"
 import { links } from "./links"
 import { useNavigate } from "react-router-dom"
-import Logo from "ui/icons/eye.svg?react"
+import { Logo } from "ui/icons"
 import s from "./Header.module.scss"
 
 interface HeaderI {}
