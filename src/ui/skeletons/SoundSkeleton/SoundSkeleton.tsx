@@ -1,6 +1,6 @@
 import { FC } from "react"
+import { Skeleton } from "ui/nextui-components"
 import s from "./SoundSkeleton.module.scss"
-import { Skeleton } from "@nextui-org/react"
 
 interface SoundSkeletonI {}
 export const SoundSkeleton: FC<SoundSkeletonI> = ({}) => {

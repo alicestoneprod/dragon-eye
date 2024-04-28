@@ -1,10 +1,9 @@
 import { FC } from "react"
-import { Slider } from "@nextui-org/react"
+import { Slider } from "ui/nextui-components"
 import Highlighter from "react-highlight-words"
 import { playerTimeFormatter } from "shared/helpers"
 import { useAppSelector } from "shared/hooks/useAppSelector"
-import Play from "ui/icons/play.svg?react"
-import Pause from "ui/icons/pause.svg?react"
+import { Play, Pause } from "ui/icons"
 import cn from "classnames"
 import s from "./Sound.module.scss"
 

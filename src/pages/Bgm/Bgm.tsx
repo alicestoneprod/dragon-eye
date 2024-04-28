@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react"
-import { Pagination } from "@nextui-org/pagination"
+import { Pagination } from "ui/nextui-components"
 import { SoundList } from "components"
 import { useBgm, usePagination } from "shared/hooks"
 import { useAppDispatch } from "shared/hooks/useAppDispatch"

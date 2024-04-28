@@ -8,7 +8,7 @@ import { setIsLoading } from "store/loadingSlice"
 import { setFile } from "store/fileSlice"
 import { useDrop } from "shared/hooks"
 import isArray from "lodash/isArray"
-import Clip from "ui/icons/clip.svg?react"
+import { Clip } from "ui/icons"
 import cn from "classnames"
 import s from "./FileUploader.module.scss"
 
