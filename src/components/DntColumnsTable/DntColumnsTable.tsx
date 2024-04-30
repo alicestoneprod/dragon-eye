@@ -73,13 +73,18 @@ export const DntColumnsTable: FC<DntColumnsTableI> = ({ filteredList, filter, se
         topContent={topContent}
         isCompact
         classNames={{
-          table: s.table,
+          table: "min-h-[400px]",
         }}>
         <TableHeader columns={columns}>{(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}</TableHeader>
         <TableBody
           loadingState={loading ? "loading" : "idle"}
           loadingContent={
-            <Loader className='flex justify-items-center items-center relative top-10' width={200} height={200} text='Data is loading...' />
+            <Loader
+              className='flex flex-col-reverse justify-items-center items-center relative top-10'
+              width={200}
+              height={200}
+              text='Data is loading...'
+            />
           }
           items={loading ? [] : items}>
           {(item) => (
