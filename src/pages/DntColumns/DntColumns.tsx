@@ -64,7 +64,7 @@ export const DntColumns: FC<DntColumnsI> = ({}) => {
       <div className=''>
         <h1>Uploaded files: {columnItems.length}</h1>
       </div>
-      <div className={cn("max-w-[1600px]", s.tableCnt)}>
+      <div className={cn(s.tableCnt)}>
         <DntColumnsTable filteredList={filteredList} filter={filter} setFilter={setFilter} />
       </div>
     </div>
