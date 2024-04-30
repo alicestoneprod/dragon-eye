@@ -64,12 +64,12 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-2px); /* Выберите значение смещения вверх */
+    transform: translateY(-2px);
   }
 }
 
 .imgCnt {
-  animation: moveUpAndDown 5s infinite ease-in-out; /* Измените значение 2s на длительность анимации, infinite - чтобы анимация повторялась бесконечно */
+  animation: moveUpAndDown 5s infinite ease-in-out;
 }
 
 @media screen and (max-width: 1280px) {
