@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 98svw;
   background-color: $color-black;
   height: fit-content;
   padding-bottom: 120px;
@@ -43,8 +44,9 @@
 }
 
 .tableCnt {
+  min-height: 70svh;
   z-index: 20;
-  min-width: 1600px;
+  width: 80%;
 }
 
 .imgCnt {
@@ -62,10 +64,42 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-2px); /* Выберите значение смещения вверх */
+    transform: translateY(-2px);
   }
 }
 
 .imgCnt {
-  animation: moveUpAndDown 5s infinite ease-in-out; /* Измените значение 2s на длительность анимации, infinite - чтобы анимация повторялась бесконечно */
+  animation: moveUpAndDown 5s infinite ease-in-out;
+}
+
+@media screen and (max-width: 1280px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .imgCnt {
+    width: 300px;
+    height: 300px;
+    left: -5svw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .tip {
+    font-size: 14px;
+  }
+
+  .imgCnt {
+    left: -16svw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .imgCnt {
+    display: none;
+  }
 }
