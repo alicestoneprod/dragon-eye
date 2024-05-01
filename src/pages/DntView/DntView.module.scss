@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   background-color: $color-black;
-  height: fit-content;
+  height: 1000px;
   padding-bottom: 40px;
   gap: 20px;
 }
@@ -34,7 +34,7 @@
 
 .tableCnt {
   position: relative;
-  width: 1200px;
+  width: 80svw;
   z-index: 20;
   height: 600px;
 }
@@ -57,4 +57,46 @@
 
 .imgCnt {
   animation: moveUpAndDown 4s infinite ease-in-out;
+}
+
+@media screen and (max-width: 1280px) {
+  .title {
+    font-size: 48px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .fileUploadCnt {
+    margin-bottom: 40px;
+  }
+
+  .imgCnt {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .tip {
+    font-size: 16px;
+  }
+  .fileUploadCnt {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .tip {
+    font-size: 12px;
+  }
+  .fileUploadCnt {
+    margin-bottom: 40px;
+  }
 }
