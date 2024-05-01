@@ -86,11 +86,11 @@
 
 @media screen and (max-width: 768px) {
   .title {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   .tip {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .imgCnt {
@@ -101,5 +101,15 @@
 @media screen and (max-width: 600px) {
   .imgCnt {
     display: none;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .tip {
+    font-size: 14px;
   }
 }
