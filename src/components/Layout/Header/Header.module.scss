@@ -45,12 +45,15 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .headerCnt {
+    justify-content: space-between;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .headerCnt {
     padding: 0 20px;
-  }
-  .title {
-    font-size: 12px;
   }
 
   .iconTitleCnt {

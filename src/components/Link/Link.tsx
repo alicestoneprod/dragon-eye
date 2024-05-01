@@ -6,12 +6,13 @@ import s from "./Link.module.scss"
 interface LinkI {
   children: ReactNode
   to: string
+  onClick?: () => void
 }
 
-export const Link: FC<LinkI> = ({ children, to }) => {
+export const Link: FC<LinkI> = ({ children, to, onClick }) => {
   const location = useLocation()
   return (
-    <NavLink to={to} className={cn({ [s.isActive]: location.pathname === to }, s.link)}>
+    <NavLink onClick={onClick} to={to} className={cn({ [s.isActive]: location.pathname === to }, s.link)}>
       {children}
     </NavLink>
   )

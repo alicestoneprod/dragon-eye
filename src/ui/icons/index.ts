@@ -10,5 +10,7 @@ import Pause from "./pause.svg?react"
 import Arrow from "./arrow-up.svg?react"
 import DocumentTxt from "./document-txt.svg?react"
 import Github from "./github.svg?react"
+import Menu from "./menu.svg?react"
+import Close from "./close.svg?react"
 
-export { Play, VolumeHigh, VolumeLow, Search, Minimize, Unminimize, Clip, Logo, Pause, Arrow, DocumentTxt, Github }
+export { Play, VolumeHigh, VolumeLow, Search, Minimize, Unminimize, Clip, Logo, Pause, Arrow, DocumentTxt, Github, Menu, Close }
