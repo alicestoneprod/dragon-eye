@@ -1,13 +1,82 @@
 @use "styles" as *;
 
-.linksRowCnt {
+.linksRowCntDesktop {
   width: 100%;
   display: flex;
   align-items: center;
 }
 
-@media screen and (max-width: 480px) {
-  * {
-    font-size: 12px;
+.linksRowCntMobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .linksRowCntDesktop {
+    display: none;
   }
+
+  .linksRowCntMobile {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .menu {
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    * {
+      stroke: $color-white;
+    }
+  }
+
+  .closeIcon {
+    position: relative;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    right: 6px;
+  }
+}
+
+.mobileList {
+  a {
+    font-size: 40px;
+  }
+  font-size: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-black;
+  position: absolute;
+  left: 0;
+  top: 64px;
+  height: 500px;
+  width: 100%;
+  border-radius: 0 0 32px 32px;
+  border-bottom: 2px $color-grey-divider solid;
+}
+
+@media screen and (max-width: 480px) {
+  .mobileList {
+    a {
+      font-size: 32px;
+    }
+  }
+}
+
+.isMin {
+  position: absolute;
+  top: -80px;
+  z-index: -2000;
+  height: 0;
+  transition: height 0.5s ease;
+}
+
+.notIsMin {
+  z-index: 2000;
+  width: 100%;
+  height: 500px;
+  transition: height 0.5s ease;
 }
