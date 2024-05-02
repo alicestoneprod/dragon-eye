@@ -4,7 +4,6 @@ import { joinAllContent } from "shared/helpers"
 import { Link } from "ui/nextui-components"
 import { DocumentTxt } from "ui/icons"
 import s from "./ConvertToCsv.module.scss"
-import cn from "classnames"
 
 interface ConvertToCsvI {}
 export const ConvertToCsv: FC<ConvertToCsvI> = ({}) => {
