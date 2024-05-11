@@ -1,6 +1,7 @@
 @use "styles" as *;
 
 .soundCnt {
+  position: relative;
   transition: transform 0.5s ease;
   display: flex;
   gap: 10px;
@@ -47,6 +48,28 @@
 .isCurrent {
   transform: scale(1.05);
   transition: transform 0.5s ease;
+}
+
+.nameDownloadCnt {
+  position: relative;
+  display: flex;
+  gap: 20px;
+}
+
+.download {
+  position: absolute;
+  right: 0;
+  top: -5px;
+  cursor: pointer;
+}
+
+.icon {
+  * {
+    fill: rgb(152, 222, 46);
+    fill-opacity: 1;
+  }
+  width: 17px;
+  height: 24px;
 }
 
 @media screen and (max-width: 500px) {
