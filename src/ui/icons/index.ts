@@ -12,5 +12,6 @@ import DocumentTxt from "./document-txt.svg?react"
 import Github from "./github.svg?react"
 import Menu from "./menu.svg?react"
 import Close from "./close.svg?react"
+import Download from "./download.svg?react"
 
-export { Play, VolumeHigh, VolumeLow, Search, Minimize, Unminimize, Clip, Logo, Pause, Arrow, DocumentTxt, Github, Menu, Close }
+export { Play, VolumeHigh, VolumeLow, Search, Minimize, Unminimize, Clip, Logo, Pause, Arrow, DocumentTxt, Github, Menu, Close, Download }
