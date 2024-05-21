@@ -5,6 +5,8 @@ import { TableSidebar } from "./TableSidebar"
 import { setData, initialState } from "store/dntSlice"
 import { useDispatch } from "react-redux"
 import s from "./DntTable.module.scss"
+import toast from "react-hot-toast"
+import { Button } from "@nextui-org/react"
 
 interface DntTableI {}
 
@@ -37,6 +39,17 @@ export const DntTable: FC<DntTableI> = ({}) => {
     }
   }, [dispatch])
 
+  const onCellValueCopy = async (value: string) => {
+    await navigator.clipboard
+      .writeText(value)
+      .then(() => {
+        toast.success(`Value ${value} from cell was successfully copied to clipboard`)
+      })
+      .catch(() => {
+        toast.error("An error occurred while copying the value")
+      })
+  }
+
   const getData = () => {
     if (!data || !data.columnNames || !data.data || !data.data.length) {
       return []
@@ -65,7 +78,7 @@ export const DntTable: FC<DntTableI> = ({}) => {
     <div className={s.sidebarTableCnt}>
       <TableSidebar columnDefs={columnDefs} setColumnsDefs={setColumnsDefs} />
       <div className={"ag-theme-balham"} style={{ width: "100%", height: "550px" }}>
-        <AgGridReact rowData={getData()} columnDefs={columnDefs} rowSelection='multiple' />
+        <AgGridReact rowData={getData()} columnDefs={columnDefs} rowSelection='multiple' onCellDoubleClicked={(e) => onCellValueCopy(e.value)} />
       </div>
     </div>
   )
