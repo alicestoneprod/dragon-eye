@@ -14,6 +14,7 @@ interface TableSidebarI {
 export const TableSidebar: FC<TableSidebarI> = ({ columnDefs, setColumnsDefs }) => {
   const [filter, setFilter] = useState<string>("")
   const [minimized, setMinimized] = useState<boolean>(false)
+  console.log(columnDefs)
   const handleInputChange = useCallback(
     debounce((e: ChangeEvent<HTMLInputElement>) => {
       setFilter(e.target.value.toLowerCase())
@@ -21,7 +22,7 @@ export const TableSidebar: FC<TableSidebarI> = ({ columnDefs, setColumnsDefs }) 
     [],
   )
 
-  const handleHideColumn = (headerName: string) => {
+  const handleHideColumn = (headerName: string): void => {
     if (columnDefs?.length) {
       const columns = columnDefs.map((column) => {
         if (column?.headerName === headerName) {
@@ -34,6 +35,27 @@ export const TableSidebar: FC<TableSidebarI> = ({ columnDefs, setColumnsDefs }) 
     }
   }
 
+  const allColumnsAreHidden = () => {
+    const hiddenArr = columnDefs?.filter((column) => column.hide)
+    return hiddenArr?.length === columnDefs?.length
+  }
+
+  const handleHideAllColumns = (columnDefs?: ColumnsDefsI[]): void => {
+    if (!allColumnsAreHidden()) {
+      const columns = columnDefs?.map((column) => {
+        return { ...column, hide: true }
+      })
+      setColumnsDefs(columns || [])
+
+      return
+    }
+
+    const columns = columnDefs?.map((column) => {
+      return { ...column, hide: false }
+    })
+    setColumnsDefs(columns || [])
+  }
+
   const iconProps = { className: s.icon, width: 22, height: 22, onClick: () => setMinimized((prevState) => !prevState) }
 
   return (
@@ -42,6 +64,10 @@ export const TableSidebar: FC<TableSidebarI> = ({ columnDefs, setColumnsDefs }) 
       <h1 className={s.title}>Columns</h1>
       <h1 className={s.tip}>Click on checkbox to hide the column</h1>
       <Input type='text' className={s.input} onChange={handleInputChange} placeholder='Type to filter' />
+      <div className={s.hideAllCnt} style={{ display: columnDefs?.length ? "block" : "none" }}>
+        <Checkbox onValueChange={() => handleHideAllColumns(columnDefs)} color='secondary' isSelected={allColumnsAreHidden()} />
+        <label className={s.hideAllLabel}>Hide all columns</label>
+      </div>
       <div className={s.columnsRow}>
         {columnDefs
           ?.filter((column) => column?.headerName?.toLowerCase()?.includes(filter))
