@@ -4,9 +4,8 @@ import { AgGridReact } from "ag-grid-react"
 import { TableSidebar } from "./TableSidebar"
 import { setData, initialState } from "store/dntSlice"
 import { useDispatch } from "react-redux"
-import s from "./DntTable.module.scss"
 import toast from "react-hot-toast"
-import { Button } from "@nextui-org/react"
+import s from "./DntTable.module.scss"
 
 interface DntTableI {}
 
