@@ -9,12 +9,13 @@ import s from "./TableSidebar.module.scss"
 interface TableSidebarI {
   columnDefs: ColumnsDefsI[] | undefined
   setColumnsDefs: (columns: ColumnsDefsI[]) => void
+  appendCommand: boolean
+  onToggleAppendCommand: () => void
 }
 
-export const TableSidebar: FC<TableSidebarI> = ({ columnDefs, setColumnsDefs }) => {
+export const TableSidebar: FC<TableSidebarI> = ({ columnDefs, setColumnsDefs, onToggleAppendCommand, appendCommand }) => {
   const [filter, setFilter] = useState<string>("")
   const [minimized, setMinimized] = useState<boolean>(false)
-  console.log(columnDefs)
   const handleInputChange = useCallback(
     debounce((e: ChangeEvent<HTMLInputElement>) => {
       setFilter(e.target.value.toLowerCase())
@@ -67,6 +68,10 @@ export const TableSidebar: FC<TableSidebarI> = ({ columnDefs, setColumnsDefs }) 
       <div className={s.hideAllCnt} style={{ display: columnDefs?.length ? "block" : "none" }}>
         <Checkbox onValueChange={() => handleHideAllColumns(columnDefs)} color='secondary' isSelected={allColumnsAreHidden()} />
         <label className={s.hideAllLabel}>Hide all columns</label>
+      </div>
+      <div className={s.appendCmdCnt}>
+        <Checkbox onValueChange={onToggleAppendCommand} color='secondary' isSelected={appendCommand} />
+        <label className={s.appendCmdLabel}>Append /makeitem to clipboard</label>
       </div>
       <div className={s.columnsRow}>
         {columnDefs
