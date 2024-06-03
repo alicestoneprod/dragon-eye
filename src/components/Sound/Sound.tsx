@@ -36,7 +36,7 @@ export const Sound: FC<SoundI> = ({ filename, maxDuration, link, filter, isPlayi
 
       window.URL.revokeObjectURL(blobUrl)
     } catch (error) {
-      console.error("Ошибка при скачивании файла:", error)
+      console.error("An error occurred while downloading the file:", error)
     }
   }
 

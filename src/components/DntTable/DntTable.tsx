@@ -17,9 +17,14 @@ export interface ColumnsDefsI {
 }
 
 export const DntTable: FC<DntTableI> = ({}) => {
+  const [appendCommand, setAppendCommand] = useState<boolean>(false)
   const [columnDefs, setColumnsDefs] = useState<ColumnsDefsI[]>()
   const dispatch = useDispatch()
   const data = useAppSelector((state) => state.table)
+
+  const onToggleAppendCommand = () => {
+    setAppendCommand((prevState) => !prevState)
+  }
 
   useEffect(() => {
     const columns = data?.columnNames?.map((column) => ({
@@ -39,10 +44,11 @@ export const DntTable: FC<DntTableI> = ({}) => {
   }, [dispatch])
 
   const onCellValueCopy = async (value: string) => {
+    const finalValue = appendCommand ? `/makeitem ${value}` : value
     await navigator.clipboard
-      .writeText(value)
+      .writeText(finalValue)
       .then(() => {
-        toast.success(`Value ${value} from cell was successfully copied to clipboard`)
+        toast.success(`Value ${finalValue} from cell was successfully copied to clipboard`)
       })
       .catch(() => {
         toast.error("An error occurred while copying the value")
@@ -75,7 +81,12 @@ export const DntTable: FC<DntTableI> = ({}) => {
 
   return (
     <div className={s.sidebarTableCnt}>
-      <TableSidebar columnDefs={columnDefs} setColumnsDefs={setColumnsDefs} />
+      <TableSidebar
+        columnDefs={columnDefs}
+        setColumnsDefs={setColumnsDefs}
+        onToggleAppendCommand={onToggleAppendCommand}
+        appendCommand={appendCommand}
+      />
       <div className={"ag-theme-balham"} style={{ width: "100%", height: "550px" }}>
         <AgGridReact rowData={getData()} columnDefs={columnDefs} rowSelection='multiple' onCellDoubleClicked={(e) => onCellValueCopy(e.value)} />
       </div>
