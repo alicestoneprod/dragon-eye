@@ -16,14 +16,17 @@ export const DntView: FC<DntViewI> = ({}) => {
   }
 
   useEffect(() => {
-    document.addEventListener("keydown", (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "f") {
         e.preventDefault()
         dispatch(togglePanelIsOpen())
       }
-    })
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
 
     return () => {
+      window.removeEventListener("keydown", handleKeyDown)
       dispatch(setPanelDefaultState())
     }
   }, [dispatch])
