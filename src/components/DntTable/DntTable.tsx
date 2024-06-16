@@ -4,7 +4,10 @@ import { AgGridReact } from "ag-grid-react"
 import { TableSidebar } from "./TableSidebar"
 import { setData, initialState } from "store/dntSlice"
 import { useDispatch } from "react-redux"
+import { SearchPanel } from "./SearchPanel"
+import { getDntData } from "shared/helpers"
 import toast from "react-hot-toast"
+
 import s from "./DntTable.module.scss"
 
 interface DntTableI {}
@@ -21,6 +24,9 @@ export const DntTable: FC<DntTableI> = ({}) => {
   const [columnDefs, setColumnsDefs] = useState<ColumnsDefsI[]>()
   const dispatch = useDispatch()
   const data = useAppSelector((state) => state.table)
+  const panelValue = useAppSelector((state) => state.searchPanel.value)
+  const searchVariant = useAppSelector((state) => state.searchPanel.searchVariant)
+  const formattedDntData = getDntData(data)
 
   const onToggleAppendCommand = () => {
     setAppendCommand((prevState) => !prevState)
@@ -32,9 +38,23 @@ export const DntTable: FC<DntTableI> = ({}) => {
       field: column,
       filter: true,
       hide: false,
+      // Type of params === CellClassParams from Ag Grid Community, but importing of type is too large, cause library has 1mb size totally.
+      cellStyle: (params) => {
+        if (searchVariant === "contains") {
+          if (panelValue && params.value?.toString()?.toLowerCase().includes(panelValue)) {
+            return { color: "black", backgroundColor: "#ffa328", fontWeight: "bold" }
+          }
+          return null
+        }
+
+        if (panelValue && params.value?.toString()?.toLowerCase() === panelValue) {
+          return { color: "black", backgroundColor: "#ffa328", fontWeight: "bold" }
+        }
+        return null
+      },
     }))
     setColumnsDefs(columns)
-  }, [data])
+  }, [data, panelValue, searchVariant])
 
   useEffect(() => {
     return () => {
@@ -55,32 +75,25 @@ export const DntTable: FC<DntTableI> = ({}) => {
       })
   }
 
-  const getData = () => {
-    if (!data || !data.columnNames || !data.data || !data.data.length) {
-      return []
-    }
-    const dataSource = []
-    const columns = data.columnNames
-    const values = data.data
-    const valuesLength = values.length
-    const columnsLength = columns.length
+  const getFilteredData = (data: object[], filter: string) => {
+    const result: object[] = []
 
-    for (let i = 0; i < valuesLength; i++) {
-      const el = values[i]
-      const obj = {}
-
-      for (let j = 0; j < columnsLength; j++) {
-        obj[columns[j]] = el[j]
+    data.forEach((el) => {
+      for (const key in el) {
+        const value = el[key]?.toString()
+        if (value?.includes(filter)) {
+          result.push(el)
+          break
+        }
       }
+    })
 
-      dataSource.push(obj)
-    }
-
-    return dataSource
+    return result
   }
 
   return (
     <div className={s.sidebarTableCnt}>
+      <SearchPanel />
       <TableSidebar
         columnDefs={columnDefs}
         setColumnsDefs={setColumnsDefs}
@@ -88,7 +101,12 @@ export const DntTable: FC<DntTableI> = ({}) => {
         appendCommand={appendCommand}
       />
       <div className={"ag-theme-balham"} style={{ width: "100%", height: "550px" }}>
-        <AgGridReact rowData={getData()} columnDefs={columnDefs} rowSelection='multiple' onCellDoubleClicked={(e) => onCellValueCopy(e.value)} />
+        <AgGridReact
+          rowData={panelValue ? getFilteredData(formattedDntData, panelValue) : formattedDntData}
+          columnDefs={columnDefs}
+          rowSelection='multiple'
+          onCellDoubleClicked={(e) => onCellValueCopy(e.value)}
+        />
       </div>
     </div>
   )
