@@ -1,9 +1,10 @@
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import { DntTable, FileUploader } from "components"
 import { DntData } from "dnt-readerjs"
 import { setData } from "store/dntSlice"
 import { useAppDispatch } from "shared/hooks/useAppDispatch"
 import { ConvertToCsv } from "./ConvertToCsv"
+import { setPanelDefaultState, setPanelValue, togglePanelIsOpen } from "store/searchPanelSlice"
 import s from "./DntView.module.scss"
 
 interface DntViewI {}
@@ -13,6 +14,22 @@ export const DntView: FC<DntViewI> = ({}) => {
   const onFinish = (data: DntData) => {
     data && dispatch(setData(data))
   }
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.key === "f") {
+        e.preventDefault()
+        dispatch(togglePanelIsOpen())
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+      dispatch(setPanelDefaultState())
+    }
+  }, [dispatch])
 
   return (
     <div className={s.dntViewCnt}>

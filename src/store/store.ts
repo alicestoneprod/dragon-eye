@@ -4,6 +4,7 @@ import loadingSlice from "./loadingSlice"
 import fileSlice from "./fileSlice"
 import bgmSlice from "./bgmSlice"
 import audioPlayerSlice from "./audioPlayerSlice"
+import searchPanelSlice from "./searchPanelSlice"
 
 export const store = configureStore({
   reducer: combineReducers({
@@ -12,5 +13,6 @@ export const store = configureStore({
     file: fileSlice,
     bgm: bgmSlice,
     audioPlayer: audioPlayerSlice,
+    searchPanel: searchPanelSlice,
   }),
 })

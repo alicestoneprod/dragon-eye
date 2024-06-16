@@ -1,0 +1,74 @@
+@use "styles" as *;
+
+.searchPanelCnt {
+  position: absolute;
+  top: 30px;
+  z-index: 2000;
+  left: 2px;
+}
+
+.searchPanel {
+  display: flex;
+  flex-direction: column;
+  border: 2px $color-grey-border solid;
+  background-color: $color-white;
+  width: 300px;
+  height: 80px;
+  height: fit-content;
+  font-size: 16px;
+  color: $color-black;
+  padding: 5px;
+  gap: 10px;
+}
+
+.input {
+  height: 40px;
+  border-radius: 8px;
+  padding: 0 5px;
+  background-color: $color-input-border;
+  &::placeholder {
+    color: $color-black;
+    opacity: 0.5;
+    padding-left: 5px;
+  }
+}
+
+.labelCloseCnt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  font-weight: $fw-bold;
+}
+
+.icon {
+  cursor: pointer;
+  path {
+    stroke: $color-black;
+  }
+}
+
+.variantsCnt {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.variantLabel {
+  font-size: 14px;
+  font-weight: $fw-bold;
+  text-align: center;
+}
+
+.labelsCheckboxesCnt {
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+}
+
+.checkboxLabelCnt {
+  display: flex;
+  gap: 5px;
+}
